@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .el-input__inner {
+      background-color: rgba(45, 45, 45, .4) !important;
+      border-radius: 20px !important;
+      border: none !important;
+      color: #fff !important;
+    }
+
+    :root {
+      /* background-image: linear-gradient(135deg,
+          #41DFDD,
+          #53E9CC,
+          #76F1B5,
+          #9FF69C,
+          #CBF983,
+          #F9F871); */
+      background-image: linear-gradient(to left bottom, #dd4123, #dc7000, #c59d00, #97c600, #12eb22);
+      ;
+      height: 100%;
+      width: 100%;
+      background-size: 100% 100%;
+    }
+
+  </style>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
