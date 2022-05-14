@@ -11,4 +11,4 @@
 
 ## 项目预览：
 
-![page]()
+![index](https://github.com/ywz85/v-music/blob/master/preview/index.png?raw=true)
