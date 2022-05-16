@@ -5,9 +5,14 @@ import store from './store';
 import ElementUI from 'element-ui';
 import axios from 'axios';
 import 'element-ui/lib/theme-chalk/index.css'
+import Aplayer from '@moefe/vue-aplayer'
 
 Vue.prototype.axios = axios;
 Vue.use(ElementUI);
+Vue.use(Aplayer, {
+  defaultCover: 'https://github.com/u3u.png',
+  productionTip: false,
+});
 
 Vue.config.productionTip = false
 

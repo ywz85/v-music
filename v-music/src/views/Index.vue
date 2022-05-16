@@ -8,14 +8,16 @@
         <el-main class="main"><router-view></router-view></el-main>
       </el-container>
     </el-container>
+    <Aplayer />
   </div>
 </template>
 
 <script>
 import Asider from "../components/Asider.vue";
 import Header from "../components/Header.vue";
+import Aplayer from "../components/Aplayer.vue";
 export default {
-  components: { Header, Asider },
+  components: { Header, Asider, Aplayer },
 };
 </script>
 
@@ -23,7 +25,7 @@ export default {
 .container {
   width: 80%;
   height: 800px;
-  margin: 70px auto;
+  margin: 60px auto;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   background-color: rgba(0, 0, 0, 0.3);

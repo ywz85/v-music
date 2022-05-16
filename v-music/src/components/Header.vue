@@ -1,31 +1,42 @@
 <template>
   <div class="header">
     <span class="left">
-      <span class="el-icon-arrow-left" @click="backto"></span>
-      <span class="el-icon-arrow-right" @click="goto"></span>
-      <span class="el-icon-house" @click="home"></span>
-      <span class="el-icon-refresh" @click="refresh"></span>
+      <span class="el-icon-arrow-left icon" @click="backto"></span>
+      <span class="el-icon-arrow-right icon" @click="goto"></span>
+      <span class="el-icon-house icon" @click="home"></span>
+      <span class="el-icon-refresh icon" @click="refresh"></span>
     </span>
 
     <span class="search">
       <el-input
         class="input"
+        type="text"
         placeholder="搜索"
         prefix-icon="el-icon-search"
-        suffix-icon="el-icon-close"
+        clearable
+        v-model="searchText"
         size="medium"
       >
       </el-input>
     </span>
     <span class="right">
-      <span class="el-icon-bell"></span>
-      <span class="el-icon-user" @click="login"></span>
+      <!-- 用户消息 -->
+      <el-badge :value="12" class="badge" type="primary">
+        <span class="el-icon-bell icon"></span>
+      </el-badge>
+      <!-- 用户按钮 -->
+      <span class="el-icon-user icon" @click="login"></span>
     </span>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      searchText: "",
+    };
+  },
   methods: {
     goto() {
       this.$router.go(1);
@@ -69,7 +80,7 @@ export default {
   .el-icon-bell:hover,
   .el-icon-user:hover {
     transition: all 0.3s;
-    transform: scale(1.3);
+    transform: scale(1.2);
   }
   .el-icon-refresh:hover {
     transition: all 0.3s;
@@ -78,16 +89,26 @@ export default {
   .left {
     display: flex;
     justify-content: center;
-    align-items: space-between;
+    align-items: center;
   }
   .search {
     display: inline-block;
-    width: 30% !important;
+    width: 20% !important;
   }
   .right {
     display: flex;
-    justify-content: center;
-    align-items: space-between;
+    // border: 1px solid red;
+    width: 15%;
+    justify-content: space-around;
+    align-items: center;
+    .badge {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+    }
   }
 }
 </style>

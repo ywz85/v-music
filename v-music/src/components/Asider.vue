@@ -23,11 +23,11 @@
         <div @click="toPage('/myradio')">
           <span class="el-icon-service"> 我的电台</span>
         </div>
-        <div @click="toPage('/history')">
-          <span class="el-icon-time"> 最近播放</span>
-        </div>
         <div @click="toPage('/mylist')">
           <span class="el-icon-folder-opened"> 我的歌单</span>
+        </div>
+        <div @click="toPage('/history')">
+          <span class="el-icon-time"> 最近播放</span>
         </div>
       </el-main>
     </el-container>

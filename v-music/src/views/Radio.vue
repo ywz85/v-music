@@ -59,7 +59,7 @@ export default {
 .module-name {
   margin: 8px;
   font-size: 18px;
-  color: #b1bece;
+  color: #fff;
 }
 .classify {
   display: flex;

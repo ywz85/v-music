@@ -29,7 +29,15 @@ const routes = [
       {
         path: 'history',
         component: () => import('../views/History.vue')
-      }
+      },
+      {
+        path: 'myradio',
+        component: () => import('../views/MyRadio.vue')
+      },
+      {
+        path: 'mylist',
+        component: () => import('../views/MyList.vue')
+      },
     ]
   },
   {

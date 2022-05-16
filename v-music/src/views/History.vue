@@ -1,5 +1,5 @@
 <template>
-  <div class="app"></div>
+  <div class="app">最近播放</div>
 </template>
 
 <script>
