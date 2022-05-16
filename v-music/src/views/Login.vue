@@ -118,7 +118,12 @@ export default {
         width: 50px;
         font-size: 30px;
         color: #fff;
+        transition: all 0.2s;
         // border: 1px solid red;
+        &:hover {
+          transition: all 0.2s;
+          transform: scale(1.2);
+        }
       }
       .title {
         display: inline-block;
@@ -135,8 +140,10 @@ export default {
         font-size: 16px;
         // border: 1px solid red;
         user-select: none;
+        transition: all 0.4s;
         &:hover {
           transition: all 0.4s;
+          transform: scale(1.2);
           color: #fff;
         }
       }
@@ -172,6 +179,7 @@ export default {
           width: 100%;
           font-size: 16px;
           // border: 1px solid green;
+          transition: all 0.2s ease-out;
           &:hover {
             transition: all 0.2s ease-out;
             transform-style: preserve-3d;

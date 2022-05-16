@@ -74,6 +74,14 @@ export default {
   span {
     margin: 0 20px;
   }
+  .el-icon-arrow-left,
+  .el-icon-arrow-right,
+  .el-icon-house,
+  .el-icon-bell,
+  .el-icon-refresh,
+  .el-icon-user {
+    transition: all 0.3s;
+  }
   .el-icon-arrow-left:hover,
   .el-icon-arrow-right:hover,
   .el-icon-house:hover,

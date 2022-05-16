@@ -77,8 +77,14 @@ export default {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
     margin: 10px;
+    transition: all 0.2s;
     &:hover {
-      border: 1px solid #fff;
+      // border: 1px solid #fff;
+      transition: all 0.2s;
+      transform-style: preserve-3d;
+      transform-origin: center;
+      transform: perspective(500px) translate3d(0, 0, 30px);
+      box-shadow: (2px 2px 8px 3px rgba(72, 59, 59, 0.3));
     }
     div {
       text-align: center;
