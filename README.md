@@ -6,10 +6,8 @@
 
 ## 状态:
 
-- 施工中🛠️
+- 施工中 🛠️
 
-## 项目预览🖼️：
-
-[传送门](https://github.com/ywz85/v-music/tree/master/preview)
+## [项目预览 🖼️](https://github.com/ywz85/v-music/tree/master/preview):
 
 ![index](https://github.com/ywz85/v-music/blob/master/preview/index.png?raw=true)
