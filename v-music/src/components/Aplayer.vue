@@ -6,6 +6,15 @@
 
 <script>
 export default {
+  props: {
+    playProp: {
+      name,
+      artist,
+      url,
+      cover,
+      lrc,
+    },
+  },
   data() {
     return {
       audio: {

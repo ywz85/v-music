@@ -207,8 +207,9 @@ export default {
         );
         // background-color: #dd471f;
         border: none;
+        transition: all 0.2s;
         &:active {
-          transition: all 0.1s;
+          transition: all 0.2s;
           transform: scale(0.6, 0.6);
         }
         span {
