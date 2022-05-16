@@ -2,7 +2,7 @@
 
 - 前端: Vue.js, Element-UI
 
-- 后端: NeteaseCloudMusicApi
+- 后端: [NeteaseCloudMusicApi](https://binaryify.github.io/NeteaseCloudMusicApi/#/)
 
 ## 状态:
 
