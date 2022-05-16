@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import api from "../config";
 export default {
   data() {
     return {
@@ -39,14 +40,16 @@ export default {
   },
   methods: {
     getListData() {
-      let url = "http://localhost:3000/top/playlist?limit=42&order=hot";
+      // let url = "http://localhost:3000/top/playlist?limit=42&order=hot";
+      let url = api.topPlayList + "?limit=42&order=hot";
       this.axios.get(url).then((res) => {
         console.log("推荐歌单", res);
         this.listdata = res.data;
       });
     },
     getSwiperData() {
-      let url = "http://localhost:3000/personalized/newsong";
+      // let url = "http://localhost:3000/personalized/newsong";
+      let url = api.personalized;
       this.axios.get(url).then((res) => {
         console.log("轮播图", res);
         this.swiperdata = res.data;

@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import api from "../config";
 export default {
   data() {
     return {
@@ -20,7 +21,8 @@ export default {
   },
   methods: {
     getMvData() {
-      let url = "http://localhost:3000/mv/first?limit=28";
+      // let url = "http://localhost:3000/mv/first?limit=28";
+      let url = api.mvFirst + "?limit=28";
       this.axios.get(url).then((res) => {
         console.log("mv", res);
         this.mvData = res.data.data;

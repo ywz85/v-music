@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import api from "../config";
 export default {
   data() {
     return {
@@ -30,14 +31,16 @@ export default {
   },
   methods: {
     getRadio() {
-      let url = "http://localhost:3000/dj/hot";
+      // let url = "http://localhost:3000/dj/hot";
+      let url = api.djHot;
       this.axios.get(url).then((res) => {
         console.log("电台", res);
         this.radioData = res.data.djRadios;
       });
     },
     getClassify() {
-      let url = "http://localhost:3000/dj/catelist";
+      // let url = "http://localhost:3000/dj/catelist";
+      let url = api.djCateList;
       this.axios.get(url).then((res) => {
         console.log("分类", res);
         this.classifyData = res.data.categories;
