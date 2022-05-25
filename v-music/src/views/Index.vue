@@ -22,25 +22,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+:not(not) {
+  box-sizing: border-box;
+}
 .container {
   width: 80%;
   height: 800px;
   margin: 60px auto;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
+  overflow: hidden;
   background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
   box-shadow: 2px 2px 8px 5px rgba(0, 0, 0, 0.5);
-  .header {
-    border-bottom: 0.1px solid rgba(168, 168, 168, 0.3);
-  }
-  .aside {
-    border-right: 0.1px solid rgba(168, 168, 168, 0.5);
-  }
   .main {
-    overflow: hidden;
     padding: 0;
-    border-radius: 0;
+    height: 700px;
+    overflow: auto;
   }
 }
 </style>

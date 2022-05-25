@@ -1,19 +1,32 @@
 <template>
-  <div class="mv-box">
-    <el-card class="card-box" v-for="i in mvData" :key="i.id">
-      <img class="img" :src="i.cover" alt="" />
-      <span class="name">{{ i.name }}</span>
-      <span class="artist">--{{ i.artistName }}</span>
-    </el-card>
+  <div class="container">
+    <div class="mv-box">
+      <div class="card-box" v-for="i in mvData" :key="i.id">
+        <div class="img-box">
+          <el-image class="img" :src="i.cover" fit="contain"></el-image>
+        </div>
+        <div class="footer-box">
+          <span class="name">{{ i.name }}</span>
+          <span class="artist">--{{ i.artistName }}</span>
+        </div>
+      </div>
+    </div>
+    <Pagination :total="50" @getPage="emitPage" />
   </div>
 </template>
 
 <script>
 import api from "../config";
+import Pagination from "../components/Pagination.vue";
+
 export default {
+  components: {
+    Pagination,
+  },
   data() {
     return {
-      mvData: null,
+      mvData: [],
+      offset: 0,
     };
   },
   mounted() {
@@ -21,12 +34,16 @@ export default {
   },
   methods: {
     getMvData() {
-      // let url = "http://localhost:3000/mv/first?limit=28";
-      let url = api.mvFirst + "?limit=28";
+      let url = api.mvAll + `?limit=30&offset=${this.offset * 30}`;
       this.axios.get(url).then((res) => {
-        console.log("mv", res);
+        console.log("mvAll:", res);
         this.mvData = res.data.data;
       });
+    },
+    emitPage(page) {
+      this.offset = page - 1;
+      this.getMvData();
+      console.log("mvAll当前偏移量", this.offset);
     },
   },
 };
@@ -36,12 +53,13 @@ export default {
 :not(not) {
   box-sizing: border-box;
 }
-.mv-box {
-  height: 694px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+.container {
+  width: 100%;
+  height: 100%;
   overflow: auto;
+  margin: 0;
+  border-radius: 0;
+  background-color: transparent; // 推荐使用这个属性设置背景透明
   &::-webkit-scrollbar {
     width: 5px;
   }
@@ -50,38 +68,64 @@ export default {
     opacity: 0.2;
     border-radius: 25px;
   }
-
   &::-webkit-scrollbar-thumb {
     background: #fff;
     border-radius: 25px;
   }
-  .card-box {
-    width: 270px;
-    height: 180px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    border: none;
-    margin: 10px;
-    .img {
-      width: 230px;
-      height: 130px;
-    }
-    .name {
-      display: inline-block;
-      font-size: 14px;
-      color: #fff;
-      margin-top: 5px;
-      max-width: 70%;
-      text-overflow: ellipsis;
+  .mv-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 10px 22px;
+    .card-box {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      height: 200px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      border: none;
       overflow: hidden;
-      white-space: nowrap;
-      // border: 1px solid #fff;
-    }
-    .artist {
-      color: #b1bece;
-      font-size: 10px;
-      margin-top: 5px;
-      margin-left: 10px;
+      .img-box {
+        height: 85%;
+        width: 100%;
+        .img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .footer-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 15%;
+        .name {
+          display: inline-block;
+          font-size: 16px;
+          text-align: center;
+          color: #fff;
+          width: 70%;
+          height: 100%;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          cursor: pointer;
+          user-select: none;
+          line-height: 28px;
+        }
+        .artist {
+          display: inline-block;
+          font-size: 8px;
+          color: #b1bece;
+          width: 30%;
+          height: 100%;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          cursor: pointer;
+          user-select: none;
+          line-height: 28px;
+        }
+      }
     }
   }
 }

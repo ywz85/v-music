@@ -16,6 +16,7 @@
         clearable
         v-model="searchText"
         size="medium"
+        @change="search(searchText)"
       >
       </el-input>
     </span>
@@ -28,16 +29,32 @@
       <span class="el-icon-user icon" @click="login"></span>
     </span>
   </div>
+  <!-- <div class="searchResult" v-if="searchText.length > 0">
+      <div class="resultItem" v-for="item in songs" :key="item.id">
+        {{ item.name }}
+      </div>
+    </div> -->
 </template>
 
 <script>
+import api from "../config";
 export default {
   data() {
     return {
       searchText: "",
+      songs: [],
     };
   },
   methods: {
+    search(txt) {
+      console.log("搜索关键词", txt);
+      let url = api.search + `?keywords=${txt}&limit=30&offset=0`;
+      console.log(url);
+      this.axios.get(url).then((res) => {
+        console.log("搜索结果", res);
+        this.songs = res.data.result.songs;
+      });
+    },
     goto() {
       this.$router.go(1);
     },
@@ -70,7 +87,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
-  // border: 1px solid white;
+  border: none;
   span {
     margin: 0 20px;
   }
@@ -101,7 +118,26 @@ export default {
   }
   .search {
     display: inline-block;
+    position: relative;
     width: 20% !important;
+    .searchResult {
+      z-index: 999999;
+      position: absolute;
+      top: 40px;
+      display: flex;
+      flex-direction: column;
+      height: 500px;
+      overflow: auto;
+      border: 1px solid red;
+      .resultItem {
+        font-size: 16px;
+        height: 20px;
+        width: 100px;
+        line-height: 18px;
+        color: #ccc;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
   }
   .right {
     display: flex;

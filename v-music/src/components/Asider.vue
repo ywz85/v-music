@@ -12,7 +12,7 @@
         <div @click="toPage('/mv')">
           <span class="el-icon-view"> MV</span>
         </div>
-        <div @click="toPage('/list')">
+        <div @click="toPage('/ranking')">
           <span class="el-icon-data-line"> 排行榜</span>
         </div>
       </el-main>
@@ -82,11 +82,8 @@ a {
       border-radius: 22px;
       user-select: none;
     }
-    .active {
-      background-color: rgba(0, 0, 0, 0.5);
-    }
     div:hover {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.2);
     }
   }
 }

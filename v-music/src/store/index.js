@@ -5,12 +5,25 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    songData: {
+      name: '',
+      artist: '',
+      url: '',
+      cover: '',
+      lrc: '',
+    }
   },
   getters: {
   },
   mutations: {
+    changeData(state, songData) {
+      state.songData = songData;
+    }
   },
   actions: {
+    changeData(context, songData) {
+      context.commit('changeData', songData);
+    }
   },
   modules: {
   }

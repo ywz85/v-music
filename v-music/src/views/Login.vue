@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import api from "../config.js";
 export default {
   data() {
     return {
@@ -61,7 +62,7 @@ export default {
       this.$router.push("/register");
     },
     login() {
-      const url = "http://localhost:3000/login/cellphone";
+      const url = api.phoneLogin;
       this.axios
         .post(url, {
           phone: this.account,

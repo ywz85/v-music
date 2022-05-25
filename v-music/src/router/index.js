@@ -23,8 +23,8 @@ const routes = [
         component: () => import('../views/Mv.vue')
       },
       {
-        path: 'list',
-        component: () => import('../views/List.vue')
+        path: 'ranking',
+        component: () => import('../views/Ranking.vue')
       },
       {
         path: 'history',
@@ -37,6 +37,10 @@ const routes = [
       {
         path: 'mylist',
         component: () => import('../views/MyList.vue')
+      },
+      {
+        path: 'player',
+        component: () => import('../views/Player.vue'),
       },
     ]
   },
