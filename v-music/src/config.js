@@ -1,6 +1,6 @@
 // 项目接口文件
 const api = {
-  base: 'http://localhost:3000/'
+  base: 'http://43.138.113.12:3000/'
 }
 // 获取音乐url
 api.songUrl = api.base + 'song/url' // ?id=歌曲id,歌曲id
